@@ -16,6 +16,9 @@ const customStyles = StyleSheet.create({
     backgroundColor: 'ivory',
     width: 300,
     margin: 5,
+  },
+  centered:{
+    justifyContent: 'center'
   }
 });
 
@@ -110,11 +113,21 @@ export default class App extends React.Component {
     });
   }
 
+
   render() {
   
     return (
-      <View style={[styles.container, customStyles.blueBackground]}>
-        <Text>Bus Alert App</Text>
+      
+      <View style={[{
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+      }, customStyles.blueBackground]}>
+
+        <View style={[{width: 100, height: 100}, customStyles.centered]}>
+            <Text>Bus Alert App</Text>
+        </View>
+        
         <Picker id="stopList" style={customStyles.dropDownBox}
           onValueChange={(itemValue, itemIndex) =>
             this.setState({selectedStop: itemValue})
